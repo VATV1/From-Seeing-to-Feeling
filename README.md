@@ -12,7 +12,9 @@
   Code is tested under Pytorch 2.0.0, python 3.10, and CUDA 12.1 
 ### 2.Dataset
   Download our proposed DOVT dataset from [Google Drive](https://drive.google.com/drive/folders/1gN2t7nQUk-_fB5gUaljWAj0KF0KWqmji).
+  
   Download the AGDDO15 dataset from [OS-AGDO](https://github.com/Dikay1/OS-AGDO).
+  
   Download the TAG dataset from [Google Drive](https://drive.google.com/drive/folders/1NDasyshDCL9aaQzxjn_-Q5MBURRT360B).
 #### OS-VAL
   Put the AGDDO15 dataset in the `OS-VAL/data` folder with the following structure:  
@@ -28,14 +30,29 @@ DOVT
 ├── train
 └── test
 TAG 
-├── train
-└── test
+├── 20220605_193354
+├── ...
+├── pretrain.txt
+├── train.txt
+├── train_rough.txt
+├── test.txt
+└── test_rough.txt
 ```
 ### 3.Train and Test
   Run following commands to start training or testing:
-
+#### OS-VAL
 ```
 python train.py
 python test.py --model_file <PATH_TO_MODEL>
+```
+#### AVTNet (DOVT dataset)
+```
+python vt-pretrain.py.py
+python vtfusion-train.py
+```
+#### AVTNet (TAG dataset)
+```
+python vt-pretrain-tag.py.py
+python vtfusion-train-tag.py
 ```
  
